@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML 编码</title>
+</head>
+<body>
+
+<ul>
+    <li>
+        <h3>解析器在消耗实体引用之后不会转到标签开始状态，也就是不会创建新的标签</h3>
+        <div>&#60;img src=x onerror=alert(4)&#62;</div>
+    </li>
+    <li>
+        <h3>同上</h3>
+        <textarea>&#60;script&#62;alert(5)&#60;/script&#62;</textarea>
+    </li>
+    <li>
+        <h3>RCDATA 中只认两种标签 "textarea end tag" 或 "title end tag"</h3>
+        <textarea><script>alert(6)</script></textarea>
+    </li>
+    <li>
+        <h3>在 script 块中的字符引用并不会被解析和解码</h3>
+        <script>&#97;&#108;&#101;&#114;&#116;&#40;&#57;&#41;&#59;</script>
+    </li>
+
+</ul>
+
+
+</body>
+</html>
